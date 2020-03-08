@@ -28,4 +28,9 @@ public class ShiPinService {
         List<Shipin> shipins=shiPinDao.selectShipin();
         return  shipins;
     }
+
+    //根据id查询
+    public Shipin findById(int id) {
+        return shiPinDao.findById(id);
+    }
 }

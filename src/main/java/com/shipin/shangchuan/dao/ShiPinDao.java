@@ -15,9 +15,19 @@ public interface ShiPinDao {
 
     //插入
     @Insert({"insert into shipins (name,lujing,url) values (#{name},#{lujing},#{url})"})
-    public int insertUrl(@Param("name") String name, @Param("lujing") String lujing, @Param("url") String url);
+    public int insertUrl(
+            @Param("name") String name,
+            @Param("lujing") String lujing,
+            @Param("url") String url
+    );
 
     //查询
     @Select("select * from shipins")
     public List<Shipin> selectShipin();
+
+    //根据id查询
+    @Select("select * from shipins where id = #{id}")
+    public Shipin findById(
+            @Param("id") int id
+    );
 }
